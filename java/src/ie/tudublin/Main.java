@@ -53,7 +53,7 @@ public class Main
 		larry.speak();
 
 		Animal a = new Dog("A");
-		Animal b = new Dog("B");
+		//Animal b = new Dog("B");
 		Animal c = a;
 		a.setName("G");
 

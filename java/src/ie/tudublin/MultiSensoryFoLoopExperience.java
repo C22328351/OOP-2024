@@ -18,7 +18,8 @@ public class MultiSensoryFoLoopExperience extends PApplet {
 
     public void setup()
     {
-        colorMode(HSB);
+        colorMode(HSB, 360, 100, 100);
+       
     }
 
     public void draw()
@@ -28,18 +29,34 @@ public class MultiSensoryFoLoopExperience extends PApplet {
         switch(mode)
         {
             case 0:
-                line(0, 0, width, height);
+
+                int cols = 10;
+                noStroke();
+                float w = width/(float) cols;
+                float cgap = 255/(float) cols;
+                for(int i = 0; i < cols;i++){
+                    float x = i * w;
+                    float c = i * cgap;
+                    fill(cgap * i, 255, 255);
+                    rect(x, 0, w, height);
+                }
+                //line(0, 0, width, height);
                 // Code goes here
                 break;
             case 1:
                 for (int i = 0 ; i < 10 ; i ++)
                 {
                     // Code goes here
-
+                    float hue = map(i, 0, 10, 0, 255);
+                    fill(hue, 255, 255);
+                    ellipse(random(width), random(height), 50, 50);
                 }
+                //out.playNoise();
                 break;
             default:
                 // Code goes here
+                background(random(255), random(255), random(255));
+                out.close();
                 break;
         }
     }
