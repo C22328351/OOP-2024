@@ -33,11 +33,10 @@ public class MultiSensoryFoLoopExperience extends PApplet {
                 int cols = 10;
                 noStroke();
                 float w = width/(float) cols;
-                float cgap = 255/(float) cols;
                 for(int i = 0; i < cols;i++){
                     float x = i * w;
-                    float c = i * cgap;
-                    fill(cgap * i, 255, 255);
+                    float brightness = map(i, 0, cols -1, 0, 100);
+                    fill(120, 255, brightness);
                     rect(x, 0, w, height);
                 }
                 //line(0, 0, width, height);
