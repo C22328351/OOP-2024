@@ -65,19 +65,7 @@ public class MultiSensoryFoLoopExperience extends PApplet {
             float yPos = map(i, 0, cols - 1, 0, height);
 
             fill(hue, 255, 255);
-            rect(xPos, yPos, squareSize, squareSize);
-        }
-
-        float middleSquareSize = squareSize * 2;
-        float middleSquareX = (width - middleSquareSize)/2;
-        float middleSquareY = (height - middleSquareSize)/2;
-
-        for(int i = 0; i < 2; i++){
-            for(int j = 0; j < 2; j++){
-                float hue = map(i * 2 + j, 0, 3, 0, 255);
-                fill(hue, 255, 255);
-                rect(middleSquareX + j * squareSize, middleSquareY + i * squareSize, squareSize, squareSize);
-            }
+            rect(xPos - squareSize, yPos, squareSize, squareSize);
         }
 
     }
