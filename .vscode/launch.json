@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MultiSensoryFoLoopExperience",
+            "request": "launch",
+            "mainClass": "ie.tudublin.MultiSensoryFoLoopExperience",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "ie.tudublin.Main",
