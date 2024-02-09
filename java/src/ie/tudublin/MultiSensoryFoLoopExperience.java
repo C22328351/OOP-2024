@@ -25,63 +25,26 @@ public class MultiSensoryFoLoopExperience extends PApplet {
     public void draw() {
         background(0);
 
-        switch (mode) {
-            case 0:
-                drawDiagonalSquares();
-                break;
-            case 1:
-                drawRandomEllipses();
-                break;
-            default:
-                drawRandomBackground();
-                break;
+        int numCircles = 10;
+        float centreX = width/2.0f;
+        float centreY = height/2.0f;
+
+        for(int i = 0; i < numCircles; i++){
+            float radius = map(i, 0, numCircles -1, width/3.0f, 0);
+            float hue = map(i, 0, numCircles - 1, 200, 10);
+
+            fill(hue, 255, 255);
+            noStroke();
+
+            ellipse(centreX, centreY, radius * 2, radius * 2);
         }
+
     }
 
     public void keyPressed() {
         if (key >= '0' && key <= '9') {
             mode = key - '0';
         }
-    }
-
-    // Draw diagonal squares
-    private void drawDiagonalSquares() {
-        int cols = 10;
-        float squareSize = width / (float) cols;
-
-        for (int i = 0; i < cols; i++) {
-            float hue = map(i, 0, cols - 1, 0, 255);
-            float xPos = i * squareSize;
-            float yPos = map(i, 0, cols - 1, 0, height);
-
-            fill(hue, 255, 255);
-            rect(xPos, yPos, squareSize, squareSize);
-
-        }
-
-        for(int i = 0; i < cols; i++){
-            float hue = map(i, 0, cols - 1, 0, 255);
-            float xPos = width - i * squareSize;
-            float yPos = map(i, 0, cols - 1, 0, height);
-
-            fill(hue, 255, 255);
-            rect(xPos - squareSize, yPos, squareSize, squareSize);
-        }
-
-    }
-
-    // Draw random ellipses
-    private void drawRandomEllipses() {
-        for (int i = 0; i < 10; i++) {
-            float hue = random(255);
-            fill(hue, 255, 255);
-            ellipse(random(width), random(height), 50, 50);
-        }
-    }
-
-    // Draw random background
-    private void drawRandomBackground() {
-        background(random(255), random(255), random(255));
     }
 
     public static void main(String[] args) {
