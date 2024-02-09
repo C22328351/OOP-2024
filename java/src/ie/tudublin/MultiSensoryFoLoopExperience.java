@@ -23,20 +23,23 @@ public class MultiSensoryFoLoopExperience extends PApplet {
     }
 
     public void draw() {
-        background(0);
+        background(255);
 
         int numCircles = 10;
-        float centreX = width/2.0f;
-        float centreY = height/2.0f;
+        float circleSize = width / (float)numCircles;
 
         for(int i = 0; i < numCircles; i++){
-            float radius = map(i, 0, numCircles -1, width/3.0f, 0);
-            float hue = map(i, 0, numCircles - 1, 200, 10);
+            for(int j = 0; j < numCircles; j++){
+                float hue = map(i + j, 0, numCircles * 2 - 2, 0, 180);
 
-            fill(hue, 255, 255);
-            noStroke();
+                fill(hue, 255, 255);
+                noStroke();
 
-            ellipse(centreX, centreY, radius * 2, radius * 2);
+                float xPos = j * circleSize + circleSize/2;
+                float yPos = i * circleSize + circleSize/2;
+
+                ellipse(xPos, yPos, circleSize, circleSize);
+            }
         }
 
     }
